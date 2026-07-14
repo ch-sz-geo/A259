@@ -6,12 +6,12 @@
 ====
 [cols="1, 3"]
 |===
-| Erstelldatum | 2024-01-01
+| Erstelldatum | 2026-07-14
 | letzte Änderung | {docdate}
-| Themen-Nummer | Annn
+| Themen-Nummer | A259
 | ID nach kGeoiV | --- 
-| Beteiligte | Person 1, Fachexperte (Kürzel 1), Amt 1 + 
-Kuno Epper, Modellierer (kep), Amt für Geoinformation
+| Beteiligte | Markus Hodel, Fachexperte (mho), AWN + 
+Marco Grünenfelder, Modellierer (mgr), Amt für Geoinformation
 |===
 ====
 
