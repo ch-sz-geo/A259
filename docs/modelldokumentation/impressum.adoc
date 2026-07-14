@@ -1,5 +1,5 @@
 [discrete]
-=== [todo] Impressum
+=== Impressum
 
 .Erstellung
 [%collapsible]
