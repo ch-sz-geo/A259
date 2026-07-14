@@ -4,8 +4,6 @@ Dieses Dokument beschreibt den Geodatensatz
  
 * *__Naturgefahren Grundlagen Hydrologie__.*
 
-__<weitere Beschreibungen>__
-
 Der Datensatz dient dazu die hydrologischen Grundlagen, welche für die Berechnung der Naturgefahrenkarte notwendig sind, zu erfassen.
 
 === rechtliche Grundlagen
