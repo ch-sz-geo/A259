@@ -1,6 +1,15 @@
-== [todo] Modellbeschreibung
+== Modellbeschreibung
 
-<Beschreibung einfügen>
+Im Rahmen der Überarbeitung der Naturgefahrenkarte erfassen das Amt für Wald und Natur (AWN) und das Amt für Gewässer (AfG) die dazugehörigen hydrologischen Grundlagen.
+
+Dieses Modell beinhaltet Daten zu:
+* *Geschiebe*
+* *Hochwasser*
+* *Mittelwasser*
+* *Niedrigwasser*
+* *Schwachstelle*
+
+Daten zu Geschiebe und Schwachstellen werden durch das AWN, Daten zu Hoch-, Mittel- und Niedrigwasser werden durch das AfG bearbeitet.
 
 ifdef::backend-pdf[]
 <<<
