@@ -1,6 +1,0 @@
-== Modelltransformationen
-Da das Modell lediglich zur Datenerfassung von internen Daten dient fallen sämtliche Publikationsmodelle weg.
-
-ifdef::backend-pdf[]
-<<<
-endif::[]
