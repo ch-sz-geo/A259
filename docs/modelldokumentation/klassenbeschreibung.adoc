@@ -1,39 +1,12 @@
-== [todo] Klassenbeschreibung
+== Klassenbeschreibung
 === Topic `+Stammdaten+`
 Das Topic `+Stammdaten+` umfasst alle statischen Werte. Darunter fallen z.B. die Aufzählwerte von Listen (INTERLIS-Datentyp «Aufzählung»). Jede Liste wird in einer eigenen Klasse modelliert.
 
-Die Stammdaten werden durch die zuständige Stelle vorgegeben. Bei Bundesthemen ist dies das für die Modellierung zuständige Bundesamt. Bei kantonalen Themen das zuständige kantonale Amt. Die Stammdaten von Bundesthemen können auf der Stufe Kanton erweitert werden. Die kantonalen Erweiterungen werden bei der Überführung ins Bundesmodell den entsprechenden Bundestypen zugeordnet. Bei Bedarf werden die Stammdaten durch die Abteilung Geoinformation nachgeführt und im https://github.com/ch-sz-geo/<Themennummer>/tree/main/data[data-Verzeichnis] des jeweiligen Themas veröffentlicht.
+Die Stammdaten werden durch die zuständige Stelle vorgegeben. Bei Bundesthemen ist dies das für die Modellierung zuständige Bundesamt. Bei kantonalen Themen das zuständige kantonale Amt. Die Stammdaten von Bundesthemen können auf der Stufe Kanton erweitert werden. Die kantonalen Erweiterungen werden bei der Überführung ins Bundesmodell den entsprechenden Bundestypen zugeordnet. Bei Bedarf werden die Stammdaten durch die Abteilung Geoinformation nachgeführt und im https://github.com/ch-sz-geo/A259/tree/main/data[data-Verzeichnis] des jeweiligen Themas veröffentlicht.
 
 ==== Klasse `+Katalogeintrag+`
 Die Klasse `+Katalogeintrag+` enthält die allgemeinen, für alle Kataloge gemeinsamen Attribute. Die Klasse selber ist abstrakt: Es gibt keine Objekte `+Katalogeintrag+`, sondern nur Objekte von den spezialisierten Klassen.
 
-Spaltenbreite Variante 1:
-[cols="10%, 60%, 20%, 10%",options="header"]
-|===
-| Name | Beschreibung | Beispiel | Freigabe
-m| OID
-| technischer Objektidentifikator
-| ceaa37a9-8614-43fc-9a8b-688f95c30218
-| öffentlich
-m| Code
-| Code des Listeneintrages; entspricht in INTERLIS dem Wert der Aufzählung und muss ein gültiger INTERLIS-Name sein (siehe https://www.interlis.ch/dokumentation[INTERLIS-Referenzhandbuch])
-| in_Aenderung
-| öffentlich
-m| Name
-| Bezeichnung des Katalogeintrages, wie er den Nutzenden angezeigt wird
-| in Änderung
-| öffentlich
-m| SortierNr
-| Reihenfolge des Katalogeintrages in der Auswahlliste
-| 1
-| öffentlich
-m| Bemerkung
-| Erläuterung, welche den Katalogeintrag näher beschreibt
-| Dieser Status wird für alle Objekte verwendet, bei denen aktuell eine Nachführung läuft.
-| öffentlich
-|===
-
-Spaltenbreite Variante 2:
 [cols=4*,options="header"]
 |===
 | Name | Beschreibung | Beispiel | Freigabe
@@ -59,8 +32,8 @@ m| Bemerkung
 | öffentlich
 |===
 
-==== Klasse `+Standard-Katalogeintrag+`
-Die Verbindlichkeit kam mit der Aufnahme der statischen Waldgrenzen in den ÖREB-Kataster. Sie ist eine Spezialisierung der Klasse `+Katalogeintrag+`.
+==== Klasse `+Gemeinde+`
+Die Gemeinde ist im Modell erfasst, da die Information dem Fachamt beim Editieren der Daten von Vorteil ist. Sie ist eine Spezialisierung der Klasse `+Katalogeintrag+`.
 
 [cols=4*,options="header"]
 |===
@@ -73,49 +46,95 @@ m|Name
 3+| Die Werte müssen eindeutig sein
 |===
 
-==== Klasse `+separate Stammdaten+`
-Über den Typ wird die Art der Geometrie festgelegt.
+==== Klasse `+Los+`
+Das Los ist im Modell erfasst, da die Information dem Fachamt beim Editieren der Daten von Vorteil ist. Sie ist eine Spezialisierung der Klasse `+Katalogeintrag+`.
 
-In der Klasse `+Typ+` wurde anfänglich auch der Typ des Wirkbereiches aufgeführt. Weil ein Wirkbereich jedoch stets gleich symbolisiert wird, wurde entschieden, auf diesen Eintrag zu verzichtet.
 [cols=4*,options="header"]
 |===
 | Name | Beschreibung | Beispiel | Freigabe
-m| OID
-| technischer Objektidentifikator
-| ceaa37a9-8614-43fc-9a8b-688f95c30218
-| öffentlich
-m| Code
-| Code des Listeneintrages; entspricht in INTERLIS dem Wert der Aufzählung und muss ein gültiger INTERLIS-Name sein (siehe https://www.interlis.ch/dokumentation[INTERLIS-Referenzhandbuch])
-| ausserhalb_Bauzonen_statisch
-| öffentlich
-m| Name
-| Bezeichnung des Katalogeintrages, wie er den Nutzenden angezeigt wird
-| Waldgrenze ausserhalb Bauzone (statisch)
-| öffentlich
-m| Abkuerzung
-| Kurzform des Katalogeintrages
-| WGraB_s
-| öffentlich
-m| SortierNr
-| Reihenfolge des Katalogeintrages in der Auswahlliste
-| 2
-| öffentlich
-m| Bemerkung
-| Erläuterung, welche den Katalogeintrag näher beschreibt
-| Statische Waldgrenze in Gebieten ausserhalb der Bauzonen, in denen der Kanton eine Zunahme des Waldes verhindern will.
-| öffentlich
-m| Symbol
-| Bild des Legendeneintrages; codiert als Base64-Wert
-| iVBORw0KGg... (gekürzt)
-| öffentlich
+4+| _Diese Klasse führt keine zusätzlichen Attribute_
+4+| *Anforderungen*
+m|Code
+3+| Die Werte müssen eindeutig sein
+m|Name
+3+| Die Werte müssen eindeutig sein
 |===
 
+==== Klasse `+MethodeHochwasser+`
+Sie ist eine Spezialisierung der Klasse `+Katalogeintrag+`.
+
+[cols=4*,options="header"]
+|===
+| Name | Beschreibung | Beispiel | Freigabe
+4+| _Diese Klasse führt keine zusätzlichen Attribute_
+4+| *Anforderungen*
+m|Code
+3+| Die Werte müssen eindeutig sein
+m|Name
+3+| Die Werte müssen eindeutig sein
+|===
+
+==== Klasse `+MethodeMittelwasser+`
+Sie ist eine Spezialisierung der Klasse `+Katalogeintrag+`.
+
+[cols=4*,options="header"]
+|===
+| Name | Beschreibung | Beispiel | Freigabe
+4+| _Diese Klasse führt keine zusätzlichen Attribute_
+4+| *Anforderungen*
+m|Code
+3+| Die Werte müssen eindeutig sein
+m|Name
+3+| Die Werte müssen eindeutig sein
+|===
+
+==== Klasse `+MethodeNiedrigwasser+`
+Sie ist eine Spezialisierung der Klasse `+Katalogeintrag+`.
+
+[cols=4*,options="header"]
+|===
+| Name | Beschreibung | Beispiel | Freigabe
+4+| _Diese Klasse führt keine zusätzlichen Attribute_
+4+| *Anforderungen*
+m|Code
+3+| Die Werte müssen eindeutig sein
+m|Name
+3+| Die Werte müssen eindeutig sein
+|===
+
+==== Klasse `+MethodeGeschiebe+`
+Sie ist eine Spezialisierung der Klasse `+Katalogeintrag+`.
+
+[cols=4*,options="header"]
+|===
+| Name | Beschreibung | Beispiel | Freigabe
+4+| _Diese Klasse führt keine zusätzlichen Attribute_
+4+| *Anforderungen*
+m|Code
+3+| Die Werte müssen eindeutig sein
+m|Name
+3+| Die Werte müssen eindeutig sein
+|===
+
+==== Klasse `+MethodeSchwachstelle+`
+Sie ist eine Spezialisierung der Klasse `+Katalogeintrag+`.
+
+[cols=4*,options="header"]
+|===
+| Name | Beschreibung | Beispiel | Freigabe
+4+| _Diese Klasse führt keine zusätzlichen Attribute_
+4+| *Anforderungen*
+m|Code
+3+| Die Werte müssen eindeutig sein
+m|Name
+3+| Die Werte müssen eindeutig sein
+|===
 
 === Topic `+Fachdaten+`
 Das Topic `+Fachdaten+` umfasst die eigentlichen, fachlichen Klassen des Themas.
 
-==== Klasse `+Klasse1+`
-Die Klasse `+Klasse1+` führt .....
+==== Klasse `+Abflussregime+`
+Die Klasse `Abflussregime` führt .....
 
 [cols=4*,options="header"]
 |===
@@ -140,30 +159,136 @@ m| geaendertAm
 | Datum und Zeit, an dem der Datensatz zuletzt geändert wurde; wird durch das System gesetzt
 | 2024-07-30T08:07:57
 | öffentlich
-m| gueltigVon
-| Datum, an dem das Objekt rechtskräftig wurde bzw. wird. Es gilt der Zeitpunkt mittags um 12:00 Uhr. Das Datum kann sowohl in der Vergangenheit wie auch in der Zukunft liegen.
-| 2024-01-01
+m| Kennung
+| fortlaufende, einfach aufgebaute Kennung, welche sich zur Identifikation eignet
+| H_Sih_01
 | öffentlich
-m| gueltigBis
-| Datum, an dem das Objekt rechtskräftig aufgehoben wurde bzw. wird. Es gilt der Zeitpunkt mittags um 12:00 Uhr. Das Datum kann sowohl in der Vergangenheit wie auch in der Zukunft liegen.
-| 2030-12-31
+m| KuerzelBericht
+| Kürzel auf alten Berichten
+| (kein Beispiel)
+| öffentlich
+m| ProzessquelleNr
+| Fliessgewässer-Nr. oder Runse
+| 080-0002
+| öffentlich
+m| ProzessquelleName
+| Fliessgewässername oder Runse
+| Sihl
+| öffentlich
+m| Einzugsgebietsgroesse
+| Grösse des Einzugsgebiets
+| 32.400
+| öffentlich
+m| istKlimabereinigt
+| Sind die Werte klimabereinigt?
+| boolean
+| öffentlich
+m| istAbgeschlossen
+| Ist die Beurteilung des Punktes abgeschlossen?
+| boolean
 | öffentlich
 m| Bemerkung
 | öffentliche Bemerkung zum Objekt
-| Das ist eine öffentliche Bemerkung
+| Das ist eine öffentliche Bemerkung.
 | öffentlich
-m| Bemerkung_intern
-| Erläuterung, welche den Katalogeintrag näher beschreibt
-| Dieser Status wird für alle Objekte verwendet, bei denen aktuell eine Nachführung läuft.
-| +++<span style="color:red;">amtsintern</span>+++
+4+| *Beziehungsattribute*
+m| rBearbeiter
+| Fremdschlüssel zum Bearbeiter, welche mit dem Objekt verknüpft ist.
+| ccee2bad-419e-454e-9e0f-9ef2ae2d4d44
+| öffentlich
+m| rGemeinde
+| Fremdschlüssel zur Gemeinde, welche mit dem Objekt verknüpft ist.
+| e0807260-956b-40a2-871a-e32c51ebf192
+| öffentlich
+m| rLos
+| Fremdschlüssel zum Los, welche mit dem Objekt verknüpft ist.
+| 7937b6cd-c23a-4494-b329-8529e67b1dd2
+| öffentlich
 4+| *Geometrie*
 m| Geometrie
 | Geometrie des Objektes
 | (ohne Beispiel)
 | öffentlich
+4+| *Bedingungen*
+m|Kennung
+3+a| * Die Werte müssen innerhalb der Klasse eindeutig sein.
+* Nach der Vergabe muss der Wert unverändert bleiben.
 |===
 
-Variante mit Fremdschlüssel-, Geometrie- und Bedingungsattributen:
+Die drei Beziehungsattribute (rBearbeiter, rGemeinde und rLos) sind strenggenommen mit den drei spezialisierten Klassen Hoch-, Mittel und Niedrigwasser verknüpft. Der Einfachheit halber wurden sie hier aber bei der abstrakten Klasse "Abflussregime" angegeben. Wenn die Daten im GIS geladen sind, ist dieser Unterschied nicht sichtbar.
+
+==== Klasse `+Hochwasser+`
+Sie ist eine Spezialisierung der Klasse `+Abflussregime+`.
+
+[cols=4*,options="header"]
+|===
+| Name | Beschreibung | Beispiel | Freigabe
+m| HQ30
+| Der Abfluss bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit.
+| 3.5
+| öffentlich
+m| HQ100
+| Der Abfluss bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit.
+| 5.5
+| öffentlich
+m| HQ300
+| Der Abfluss bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit.
+| 8.3
+| öffentlich
+4+| *Beziehungsattribute*
+m| rMethodeHochwasser
+| Fremdschlüssel zur Methode (Hochwasser), welche mit dem Objekt verknüpft ist.
+| b3f2550b-7725-41ea-8ec6-dda4b8cadd24
+| öffentlich
+4+| *Anforderungen*
+4+| _Diese Klasse führt keine zusätzlichen Anforderungen_
+|===
+
+==== Klasse `+Mittelwasser+`
+Sie ist eine Spezialisierung der Klasse `+Abflussregime+`.
+
+[cols=4*,options="header"]
+|===
+| Name | Beschreibung | Beispiel | Freigabe
+m| MQ
+| Der mittlere Abluss des Gewässers.
+| 2.8
+| öffentlich
+4+| *Beziehungsattribute*
+m| rMethodeMittelwasser
+| Fremdschlüssel zur Methode (Mittelwasser), welche mit dem Objekt verknüpft ist.
+| b3f2550b-7725-41ea-8ec6-dda4b8cadd24
+| öffentlich
+4+| *Anforderungen*
+4+| _Diese Klasse führt keine zusätzlichen Anforderungen_
+|===
+
+==== Klasse `+Niedrigwasser+`
+Sie ist eine Spezialisierung der Klasse `+Abflussregime+`.
+
+
+[cols=4*,options="header"]
+|===
+| Name | Beschreibung | Beispiel | Freigabe
+m| Q347
+| Der mittlere Abluss des Gewässers.
+| 2.8
+| öffentlich
+m| Messreihe
+| tba
+| tba
+| öffentlich
+4+| *Beziehungsattribute*
+m| rMethodeNiedrigwasser
+| Fremdschlüssel zur Methode (Niedrigwasser), welche mit dem Objekt verknüpft ist.
+| b3f2550b-7725-41ea-8ec6-dda4b8cadd24
+| öffentlich
+4+| *Anforderungen*
+4+| _Diese Klasse führt keine zusätzlichen Anforderungen_
+|===
+
+==== Klasse `+Geschiebe+`
+Die Klasse `Geschiebe` führt .....
 
 [cols=4*,options="header"]
 |===
@@ -191,44 +316,60 @@ m| geaendertAm
 | intern
 m| Kennung
 | fortlaufende, einfach aufgebaute Kennung, welche sich zur Identifikation eignet
-| GA1159
+| G_Bra_01
 | öffentlich
-m| KennungAlt
-| Nummer aus dem alten geologischen Archiv; entspricht "IDAlternate" aus DM_GeolAssets_V2
-| GA01.2.1461
+m| KuerzelBericht
+| Kürzel auf alten Berichten
+| (kein Beispiel)
 | öffentlich
-m| Titel
-| Titel des Dokuments; entspricht "IDAlternate" aus DM_GeolAssets_V2
-| UVP:GeolGeotecGutachtenzumVorprojekt
+m| ProzessquelleNr
+| Fliessgewässer-Nr. oder Runse
+| 080-0002
 | öffentlich
-m| Erstelldatum
-| Datum des Berichtes; entspricht "DateCreation" aus DM_GeolAssets_V2
-| 1985-03-21
+m| ProzessquelleName
+| Fliessgewässername oder Runse
+| Sihl
 | öffentlich
-m| Dokumentlink
-| Link, über den auf das Dokument zugegrifen werden kann; Pfad zum Speicher- bzw. Ablageort des Dokuments
-| Q:\...\2021-01-18-0303_NB_Standseilbahn_Stoos_Bauproj_KL.pdf
+m| G30
+| Geschiebemenge bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit
+| 600
 | öffentlich
-m| Baugesuchsnummer
-| Kennung des Baugesuches, welches mit dem Dokument in Verbindung steht
-| B2019-0421
+m| G100
+| Geschiebemenge bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit
+| 2400
 | öffentlich
-m| Autor
-| Kennung der Objekt-ID des Unternehmens, welches den Bericht verfasst hat. Auf eine ausmodellierte Beziehung wird der Einfachheit halber verzichtet, so dass hier nur die ID eingetragen werden muss.
-| 2a150ef7-eb3d-4661-99d6-52d6eb7a5fd0
+m| G300
+| Geschiebemenge bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit
+| 5000
+| öffentlich
+m| GEHQ
+| Geschiebemenge bei einem Hochwasser mit einer extremen Wiederkehrzeit
+| (kein Beispiel)
+| öffentlich
+m| istAbgeschlossen
+| Ist die Beurteilung des Punktes abgeschlossen?
+| boolean
 | öffentlich
 m| Bemerkung
-| Kommentar zum entsprechenden Dokument; entspricht "Description" aus DM_GeolAssets_V2
-| Das ist meine Bemerkung zu diesem Dokument.
+| öffentliche Bemerkung zum Objekt
+| Das ist eine öffentliche Bemerkung.
 | öffentlich
 4+| *Beziehungsattribute*
-m| rGeometrie
-| Fremdschlüssel zur Geometrie, welche mit dem Dokument verknüpft ist.
+m| rBearbeiter
+| Fremdschlüssel zum Bearbeiter, welche mit dem Objekt verknüpft ist.
 | ccee2bad-419e-454e-9e0f-9ef2ae2d4d44
 | öffentlich
-m| rInhalt
-| Fremdschlüssel zum Inhalt (Stammdaten); entspricht "Kind" aus DM_GeolAssets_V2
-| e0807260-956b-40a2-871a-e32c51ebf192 (für "Bohrprofil")
+m| rGemeinde
+| Fremdschlüssel zur Gemeinde, welche mit dem Objekt verknüpft ist.
+| e0807260-956b-40a2-871a-e32c51ebf192
+| öffentlich
+m| rLos
+| Fremdschlüssel zum Los, welche mit dem Objekt verknüpft ist.
+| 7937b6cd-c23a-4494-b329-8529e67b1dd2
+| öffentlich
+m| rMethodeGeschiebe
+| Fremdschlüssel zur Methode (Geschiebe), welche mit dem Objekt verknüpft ist.
+| b3f2550b-7725-41ea-8ec6-dda4b8cadd24
 | öffentlich
 4+| *Geometrie*
 m| Geometrie
@@ -239,6 +380,194 @@ m| Geometrie
 m|Kennung
 3+a| * Die Werte müssen innerhalb der Klasse eindeutig sein.
 * Nach der Vergabe muss der Wert unverändert bleiben.
+|===
+
+
+==== Klasse `+Schwachstelle+`
+Die Klasse `Schwachstelle` führt .....
+
+[cols=4*,options="header"]
+|===
+| Name | Beschreibung | Beispiel | Freigabe
+4+| *Fachattribute*
+m| OID
+| technischer Objektidentifikator
+| ceaa37a9-8614-43fc-9a8b-688f95c30218
+| öffentlich
+m| erfasstVon
+| Loginname der Person, welche den Datensatz erstellt hat (Autor); wird durch das System gesetzt
+| Musterha
+| intern
+m| erfasstAm
+| Datum und Zeit, an dem der Datensatz erstellt wurde; wird durch das System gesetzt
+| 1980-03-21T15:38:12
+| intern
+m| geaendertVon
+| Loginname der Person, welche den Datensatz zuletzt geändert hat (Editor); wird durch das System gesetzt
+| Muelleran
+| intern
+m| geaendertAm
+| Datum und Zeit, an dem der Datensatz zuletzt geändert wurde; wird durch das System gesetzt
+| 2024-07-30T08:07:57
+| intern
+m| Kennung
+| fortlaufende, einfach aufgebaute Kennung, welche sich zur Identifikation eignet
+| S_Dor_02
+| öffentlich
+m| KuerzelBericht
+| Kürzel auf alten Berichten
+| (ohne Beispiel)
+| öffentlich
+m| ProzessquelleNr
+| Fliessgewässer-Nr. oder Runse
+| 646-0000
+| öffentlich
+m| ProzessquelleName
+| Fliessgewässername oder Runse
+| Dorfbach
+| öffentlich
+m| AbfluskapazitaetReinwasser
+| Fliessgewässername oder Runse
+| 1985-03-21
+| öffentlich
+m| V30
+| Verletzlichkeit bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit
+| 0.75
+| öffentlich
+m| V100
+| Verletzlichkeit bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit
+| 0.75
+| öffentlich
+m| V300
+| Verletzlichkeit bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit
+| 0.75
+| öffentlich
+m| VEHQ
+| Verletzlichkeit bei einem Hochwasser mit einer extremen Wiederkehrzeit
+| 0.75
+| öffentlich
+m| AbflusskapazitaetEff30
+| effektive Abflusskapazität bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit
+| (ohne Beispiel)
+| öffentlich
+m| AbflusskapazitaetEff100
+| effektive Abflusskapazität bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit
+| (ohne Beispiel)
+| öffentlich
+m| AbflusskapazitaetEff300
+| effektive Abflusskapazität bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit
+| (ohne Beispiel)
+| öffentlich
+m| AbflusskapazitaetEffEHQ
+| effektive Abflusskapazität bei einem Hochwasser mit einer extremen Wiederkehrzeit
+| (ohne Beispiel)
+| öffentlich
+m| istAbgeschlossen
+| Ist die Beurteilung des Punktes abgeschlossen?
+| boolean
+| öffentlich
+m| Bemerkung
+| öffentliche Bemerkung zum Objekt
+| Das ist eine öffentliche Bemerkung.
+| öffentlich
+4+| *Beziehungsattribute*
+m| rBearbeiter
+| Fremdschlüssel zum Bearbeiter, welche mit dem Objekt verknüpft ist.
+| ccee2bad-419e-454e-9e0f-9ef2ae2d4d44
+| öffentlich
+m| rGemeinde
+| Fremdschlüssel zur Gemeinde, welche mit dem Objekt verknüpft ist.
+| e0807260-956b-40a2-871a-e32c51ebf192
+| öffentlich
+m| rLos
+| Fremdschlüssel zum Los, welche mit dem Objekt verknüpft ist.
+| 7937b6cd-c23a-4494-b329-8529e67b1dd2
+| öffentlich
+m| rMethodeGeschiebe
+| Fremdschlüssel zur Methode (Schwachstelle), welche mit dem Objekt verknüpft ist.
+| b3f2550b-7725-41ea-8ec6-dda4b8cadd24
+| öffentlich
+4+| *Geometrie*
+m| Geometrie
+| Geometrie des Objektes
+| (ohne Beispiel)
+| öffentlich
+4+| *Bedingungen*
+m|Kennung
+3+a| * Die Werte müssen innerhalb der Klasse eindeutig sein.
+* Nach der Vergabe muss der Wert unverändert bleiben.
+|===
+
+==== Klasse `+Bearbeiter+`
+Die Klasse `Bearbeiter` führt .....
+
+[cols=4*,options="header"]
+|===
+| Name | Beschreibung | Beispiel | Freigabe
+m| OID
+| technischer Objektidentifikator
+| ceaa37a9-8614-43fc-9a8b-688f95c30218
+| öffentlich
+m| erfasstVon
+| Loginname der Person, welche den Datensatz erstellt hat (Autor); wird durch das System gesetzt
+| Musterha
+| +++<span style="color:red;">intern</span>+++
+m| erfasstAm
+| Datum und Zeit, an dem der Datensatz erstellt wurde; wird durch das System gesetzt
+| 1980-03-21T15:38:12
+| öffentlich
+m| geaendertVon
+| Loginname der Person, welche den Datensatz zuletzt geändert hat (Editor); wird durch das System gesetzt
+| Muelleran
+| +++<span style="color:red;">intern</span>+++
+m| geaendertAm
+| Datum und Zeit, an dem der Datensatz zuletzt geändert wurde; wird durch das System gesetzt
+| 2024-07-30T08:07:57
+| öffentlich
+m| Name
+| Unternehmen, dass den Bericht verfasst hat, auf welchem der Punkt basiert
+| Müller AG
+| öffentlich
+m| Bemerkung
+| öffentliche Bemerkung zum Objekt
+| Das ist eine öffentliche Bemerkung.
+| öffentlich
+|===
+
+==== Klasse `+Dokument+`
+Die Klasse `Dokument` führt .....
+
+[cols=4*,options="header"]
+|===
+| Name | Beschreibung | Beispiel | Freigabe
+m| OID
+| technischer Objektidentifikator
+| ceaa37a9-8614-43fc-9a8b-688f95c30218
+| öffentlich
+m| erfasstVon
+| Loginname der Person, welche den Datensatz erstellt hat (Autor); wird durch das System gesetzt
+| Musterha
+| +++<span style="color:red;">intern</span>+++
+m| erfasstAm
+| Datum und Zeit, an dem der Datensatz erstellt wurde; wird durch das System gesetzt
+| 1980-03-21T15:38:12
+| öffentlich
+m| geaendertVon
+| Loginname der Person, welche den Datensatz zuletzt geändert hat (Editor); wird durch das System gesetzt
+| Muelleran
+| +++<span style="color:red;">intern</span>+++
+m| geaendertAm
+| Datum und Zeit, an dem der Datensatz zuletzt geändert wurde; wird durch das System gesetzt
+| 2024-07-30T08:07:57
+| öffentlich
+m| Ablage
+| Ablagepfad zum entsprechenden Dokument
+| Dokumente/Testdokument_01.pdf
+| öffentlich
+m| Bemerkung
+| öffentliche Bemerkung zum Objekt
+| Das ist eine öffentliche Bemerkung.
+| öffentlich
 |===
 
 [%header, cols="10%, 10%, 10%, 60%, 10%", format=csv, separator=;]
