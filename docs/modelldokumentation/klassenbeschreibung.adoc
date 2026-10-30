@@ -176,7 +176,7 @@ m| ProzessquelleName
 | Sihl
 | öffentlich
 m| Einzugsgebietsgroesse
-| Grösse des Einzugsgebiets
+| Grösse des Einzugsgebiets [km^2^]
 | 32.400
 | öffentlich
 m| istKlimabereinigt
@@ -224,15 +224,15 @@ Sie ist eine Spezialisierung der Klasse `+Abflussregime+`.
 |===
 | Name | Beschreibung | Beispiel | Freigabe
 m| HQ30
-| Der Abfluss bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit.
+| Der Abfluss [m^3^/s] bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit.
 | 3.5
 | öffentlich
 m| HQ100
-| Der Abfluss bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit.
+| Der Abfluss [m^3^/s] bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit.
 | 5.5
 | öffentlich
 m| HQ300
-| Der Abfluss bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit.
+| Der Abfluss [m^3^/s] bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit.
 | 8.3
 | öffentlich
 4+| *Beziehungsattribute*
@@ -251,7 +251,7 @@ Sie ist eine Spezialisierung der Klasse `+Abflussregime+`.
 |===
 | Name | Beschreibung | Beispiel | Freigabe
 m| MQ
-| Der mittlere Abluss des Gewässers.
+| Der mittlere Abluss [m^3^/s] des Gewässers.
 | 2.8
 | öffentlich
 4+| *Beziehungsattribute*
@@ -271,12 +271,12 @@ Sie ist eine Spezialisierung der Klasse `+Abflussregime+`.
 |===
 | Name | Beschreibung | Beispiel | Freigabe
 m| Q347
-| Der mittlere Abluss des Gewässers.
+| Der mittlere Abluss [m^3^/s] des Gewässers.
 | 2.8
 | öffentlich
 m| Messreihe
-| tba
-| tba
+| Dauer der Messreihe [Anzahl Jahre, Monate, Wochen]
+| 2 Jahre
 | öffentlich
 4+| *Beziehungsattribute*
 m| rMethodeNiedrigwasser
@@ -286,6 +286,8 @@ m| rMethodeNiedrigwasser
 4+| *Anforderungen*
 4+| _Diese Klasse führt keine zusätzlichen Anforderungen_
 |===
+
+In der Klasse Niedrigwasser ist Attribut "Messreihe" nicht optimal ausmodelliert. Dies ist bei der nächsten Modellüberarbeitung zu korrigieren.
 
 ==== Klasse `+Geschiebe+`
 Die Klasse `Geschiebe` führt .....
@@ -331,19 +333,19 @@ m| ProzessquelleName
 | Sihl
 | öffentlich
 m| G30
-| Geschiebemenge bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit
+| Geschiebevolumen [m^3^] bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit
 | 600
 | öffentlich
 m| G100
-| Geschiebemenge bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit
+| Geschiebevolumen [m^3^] bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit
 | 2400
 | öffentlich
 m| G300
-| Geschiebemenge bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit
+| Geschiebevolumen [m^3^] bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit
 | 5000
 | öffentlich
 m| GEHQ
-| Geschiebemenge bei einem Hochwasser mit einer extremen Wiederkehrzeit
+| Geschiebevolumen [m^3^] bei einem Hochwasser mit einer extremen Wiederkehrzeit
 | (kein Beispiel)
 | öffentlich
 m| istAbgeschlossen
@@ -431,35 +433,35 @@ m| AbfluskapazitaetReinwasser
 | 1985-03-21
 | öffentlich
 m| V30
-| Verletzlichkeit bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit
+| Verklausungswahrscheinlichkeit [0-1] bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit
 | 0.75
 | öffentlich
 m| V100
-| Verletzlichkeit bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit
+| Verklausungswahrscheinlichkeit [0-1] bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit
 | 0.75
 | öffentlich
 m| V300
-| Verletzlichkeit bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit
+| Verklausungswahrscheinlichkeit [0-1] bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit
 | 0.75
 | öffentlich
 m| VEHQ
-| Verletzlichkeit bei einem Hochwasser mit einer extremen Wiederkehrzeit
+| Verklausungswahrscheinlichkeit [0-1] bei einem Hochwasser mit einer extremen Wiederkehrzeit
 | 0.75
 | öffentlich
 m| AbflusskapazitaetEff30
-| effektive Abflusskapazität bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit
+| effektive Abflusskapazität [m^3^/s] bei einem Hochwasser mit einer 30-jährlichen Wiederkehrzeit
 | (ohne Beispiel)
 | öffentlich
 m| AbflusskapazitaetEff100
-| effektive Abflusskapazität bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit
+| effektive Abflusskapazität [m^3^/s] bei einem Hochwasser mit einer 100-jährlichen Wiederkehrzeit
 | (ohne Beispiel)
 | öffentlich
 m| AbflusskapazitaetEff300
-| effektive Abflusskapazität bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit
+| effektive Abflusskapazität [m^3^/s] bei einem Hochwasser mit einer 300-jährlichen Wiederkehrzeit
 | (ohne Beispiel)
 | öffentlich
 m| AbflusskapazitaetEffEHQ
-| effektive Abflusskapazität bei einem Hochwasser mit einer extremen Wiederkehrzeit
+| effektive Abflusskapazität [m^3^/s] bei einem Hochwasser mit einer extremen Wiederkehrzeit
 | (ohne Beispiel)
 | öffentlich
 m| istAbgeschlossen
