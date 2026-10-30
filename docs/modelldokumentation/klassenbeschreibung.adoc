@@ -271,7 +271,7 @@ Sie ist eine Spezialisierung der Klasse `+Abflussregime+`.
 |===
 | Name | Beschreibung | Beispiel | Freigabe
 m| Q347
-| Der mittlere Abluss [m^3^/s] des Gewässers.
+| Der minimale Abluss [m^3^/s] des Gewässers.
 | 2.8
 | öffentlich
 m| Messreihe
