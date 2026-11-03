@@ -303,19 +303,19 @@ m| OID
 m| erfasstVon
 | Loginname der Person, welche den Datensatz erstellt hat (Autor); wird durch das System gesetzt
 | Musterha
-| intern
+| +++<span style="color:red;">intern</span>+++
 m| erfasstAm
 | Datum und Zeit, an dem der Datensatz erstellt wurde; wird durch das System gesetzt
 | 1980-03-21T15:38:12
-| intern
+| öffentlich
 m| geaendertVon
 | Loginname der Person, welche den Datensatz zuletzt geändert hat (Editor); wird durch das System gesetzt
 | Muelleran
-| intern
+| +++<span style="color:red;">intern</span>+++
 m| geaendertAm
 | Datum und Zeit, an dem der Datensatz zuletzt geändert wurde; wird durch das System gesetzt
 | 2024-07-30T08:07:57
-| intern
+| öffentlich
 m| Kennung
 | fortlaufende, einfach aufgebaute Kennung, welche sich zur Identifikation eignet
 | G_Bra_01
@@ -399,19 +399,19 @@ m| OID
 m| erfasstVon
 | Loginname der Person, welche den Datensatz erstellt hat (Autor); wird durch das System gesetzt
 | Musterha
-| intern
+| +++<span style="color:red;">intern</span>+++
 m| erfasstAm
 | Datum und Zeit, an dem der Datensatz erstellt wurde; wird durch das System gesetzt
 | 1980-03-21T15:38:12
-| intern
+| öffentlich
 m| geaendertVon
 | Loginname der Person, welche den Datensatz zuletzt geändert hat (Editor); wird durch das System gesetzt
 | Muelleran
-| intern
+| +++<span style="color:red;">intern</span>+++
 m| geaendertAm
 | Datum und Zeit, an dem der Datensatz zuletzt geändert wurde; wird durch das System gesetzt
 | 2024-07-30T08:07:57
-| intern
+| öffentlich
 m| Kennung
 | fortlaufende, einfach aufgebaute Kennung, welche sich zur Identifikation eignet
 | S_Dor_02
