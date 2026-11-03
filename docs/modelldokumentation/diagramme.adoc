@@ -1,9 +1,11 @@
 == Diagramme
+=== Komponentendiagramm
+image::../img/Komponentendiagramm.jpg[]
 
 === Klassendiagramm
 image::../img/Klassendiagramm.jpg[]
 
-image::../img/Legende Klassendiagramm Variante 1.jpg[width=350]
+image::../img/Legende Klassendiagramm Variante 3.jpg[width=350]
 
 ifdef::backend-pdf[]
 <<<
